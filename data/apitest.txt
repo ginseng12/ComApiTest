@@ -1,0 +1,4 @@
+顺序;是否开启;用例名称;类型;地址
+3;是;测试1;get;http://www.baidu.com/
+1;是;测试2;get;http://118.24.13.38:8080/goods/UserServlet?method=loginMobile&loginname=test1&loginpass=test1
+2;否;测试3;get;http://118.24.13.38:8080/goods/UserServlet?method=loginMobile&loginname=abc&loginpass=abc
