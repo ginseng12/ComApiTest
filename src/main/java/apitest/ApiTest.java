@@ -44,7 +44,7 @@ public class ApiTest {
         // List<TestCase> testCasesList = getByText(path+"apitest.txt");
         // 第二种方式
         // HttpClientUtils.openPoxy = true;
-        String excelPath = path + "apitest2.xlsx";
+        String excelPath = path + "apitest.xlsx";
         // 有关系
         List<TestCaseResult> allResults = testCaseParams(excelPath, 0);
         System.out.println("----" + allResults.size());

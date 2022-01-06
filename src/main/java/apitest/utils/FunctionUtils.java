@@ -1,6 +1,8 @@
 package apitest.utils;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -41,4 +43,19 @@ public class FunctionUtils {
 
         return str;
     }
+
+    private static String getFunctionValue(String function) throws Exception {
+        if (function.equalsIgnoreCase("__uuid")) {
+            return UUID.randomUUID().toString();
+        } else if (function.startsWith("__md5")) {
+            return DigestUtils.md5Hex(getFunctionValue(function));
+        } else if (function.startsWith("__sha")) {
+            return new String(DigestUtils.shaHex(getFunctionValue(function).getBytes(StandardCharsets.UTF_8)));
+        }else {
+            return function.equalsIgnoreCase("__time")? "" +System.currentTimeMillis() : "";
+        }
+
+    }
+
+
 }
